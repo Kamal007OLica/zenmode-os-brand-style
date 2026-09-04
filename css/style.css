@@ -1,0 +1,44 @@
+/* ZenMode OS — brand style guide
+   Fonts: Clash Display (brand), Geist (system, via Google Fonts), Departure Mono (numbers) */
+
+@font-face{font-family:"Departure Mono";src:url("../assets/fonts/DepartureMono-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Clash Display";src:url("../assets/fonts/ClashDisplay-Extralight.otf") format("opentype");font-weight:200;font-display:swap}
+@font-face{font-family:"Clash Display";src:url("../assets/fonts/ClashDisplay-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Clash Display";src:url("../assets/fonts/ClashDisplay-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Clash Display";src:url("../assets/fonts/ClashDisplay-Medium.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"Clash Display";src:url("../assets/fonts/ClashDisplay-Semibold.otf") format("opentype");font-weight:600;font-display:swap}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F2F1EC;color:#12160F;font-family:"Geist",-apple-system,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Clash Display","Geist",sans-serif;font-weight:500;margin:0;letter-spacing:-0.03em}
+p{margin:0}
+img{max-width:100%}
+a{color:#0F7A18;text-decoration:none}
+a:hover{color:#12160F}
+section{scroll-margin-top:84px}
+
+@keyframes zm-pulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
+
+/* header nav links */
+.nav-link{color:#6E736A;white-space:nowrap;transition:color 160ms}
+.nav-link:hover{color:#12160F}
+.nav-link-accent:hover{color:#0F7A18}
+
+/* pill buttons */
+.btn-primary{display:inline-block;color:#F5F5F0;background:#12160F;border-radius:999px;text-decoration:none;transition:transform 160ms cubic-bezier(0.22,1,0.36,1),background 160ms}
+.btn-primary:hover{background:#0F7A18}
+.btn-primary:active{transform:scale(0.96)}
+
+.btn-outline{display:inline-block;color:#12160F;border-radius:999px;box-shadow:inset 0 0 0 1px #C9C7BD;text-decoration:none;transition:box-shadow 160ms,color 160ms}
+.btn-outline:hover{box-shadow:inset 0 0 0 1px #0F7A18;color:#0F7A18}
+
+/* left section rail */
+.zm-rail{display:none}
+@media (min-width:1400px) and (min-height:560px){
+  .zm-rail{display:block}
+}
+.rail-link{display:flex;gap:7px;font-family:'Departure Mono',monospace;font-size:10px;letter-spacing:0.02em;color:#3F443B;padding:4px 6px;border-radius:7px;text-decoration:none;transition:background 120ms,color 120ms}
+.rail-link:hover{background:rgba(18,22,15,0.08);color:#12160F}
+.rail-link .num{color:#0F7A18}
+.rail-link.is-active{color:#0B5F12;font-weight:700;background:rgba(15,122,24,0.14)}
