@@ -42,3 +42,30 @@ section{scroll-margin-top:84px}
 .rail-link:hover{background:rgba(18,22,15,0.08);color:#12160F}
 .rail-link .num{color:#0F7A18}
 .rail-link.is-active{color:#0B5F12;font-weight:700;background:rgba(15,122,24,0.14)}
+
+/* mobile */
+@media (max-width:860px){
+  section, header nav, footer{
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+  section{padding-top:56px !important}
+  #mom, #logo, #icons{padding-bottom:56px !important}
+  #next > div{padding:36px 24px !important}
+
+  .hero-title{font-size:56px !important;line-height:94% !important}
+  .part-numeral{font-size:48px !important}
+  .quote-title{font-size:40px !important;line-height:104% !important}
+  .section-h2{font-size:30px !important;line-height:112% !important}
+
+  .g2, .g2b, .g2c, .g2d, .g2e, .g3, .sidebar{
+    grid-template-columns:1fr !important;
+  }
+  .sidebar > div:first-child{position:static !important}
+  .logo-panel{min-height:auto !important}
+
+  .g4, .g5{grid-template-columns:repeat(2,1fr) !important}
+  .icon-grid{grid-template-columns:repeat(3,1fr) !important}
+
+  .scale-table > div{min-width:640px}
+}
