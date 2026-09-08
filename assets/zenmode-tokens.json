@@ -1,63 +1,207 @@
 {
-  "$description": "ZenMode OS design tokens — W3C DTCG format. Import with the Tokens Studio (Figma Tokens) plugin: Plugins → Tokens Studio → Tools → Load from file/folder.",
-  "$themes": [],
+  "$description": "Albeit — ZenMode OS design tokens (V4). W3C DTCG format. Import into Figma with Tokens Studio: Light = color.primitive + semantic.light; Dark = color.primitive + semantic.dark. Pairing budget: green (working) + ONE reward hue per screen.",
   "color": {
-    "ink": { "$type": "color", "$value": "#12160F", "$description": "Primary text. 13.0:1 on paper. AAA." },
-    "ink-soft": { "$type": "color", "$value": "#4A4F46", "$description": "Body secondary. 7.4:1 on paper. AAA." },
-    "stone-600": { "$type": "color", "$value": "#5C6158", "$description": "Tertiary text / captions. 4.9:1 on paper. AA." },
-    "stone-500": { "$type": "color", "$value": "#6E736A", "$description": "UI text 19sp+ and icons only. 4.3:1 — AA Large." },
-    "hairline": { "$type": "color", "$value": "#DCDAD1", "$description": "1dp dividers. Non-text." },
-    "paper": { "$type": "color", "$value": "#F2F1EC", "$description": "Light surface base." },
-    "paper-raised": { "$type": "color", "$value": "#FBFAF6", "$description": "Raised card top stop." },
-    "paper-sunk": { "$type": "color", "$value": "#EDEBE3", "$description": "Raised card bottom stop." },
-    "zen-900": { "$type": "color", "$value": "#0B5C12", "$description": "Green pressed state. 7.3:1 on paper. AAA." },
-    "zen-700": { "$type": "color", "$value": "#0F7A18", "$description": "BRAND GREEN. Primary. 4.9:1 on paper, 5.5:1 on white. AA." },
-    "zen-500": { "$type": "color", "$value": "#2AA136", "$description": "Fills, charts, non-text graphics only. 3.1:1." },
-    "zen-300": { "$type": "color", "$value": "#5BDF62", "$description": "On-dark accent + icon glyph on ink. 8.5:1 on ink. AAA." },
-    "zen-050": { "$type": "color", "$value": "#E6F6E7", "$description": "Green tint surface." },
-    "ember-700": { "$type": "color", "$value": "#B34700", "$description": "Orange text/icon safe. 4.9:1 on paper. AA." },
-    "ember-500": { "$type": "color", "$value": "#FF6600", "$description": "YC orange. Gradient + fills. 2.9:1 — never text on paper." },
-    "amber-800": { "$type": "color", "$value": "#7A5A00", "$description": "Yellow text safe. 5.7:1 on paper. AA." },
-    "amber-500": { "$type": "color", "$value": "#FFC800", "$description": "Vibrant yellow. 9.5:1 on ink. Rewards + gradient." }
-  },
-  "gradient": {
-    "os": {
-      "$type": "string",
-      "$value": "linear-gradient(100deg, #FF6600 0%, #FFC800 48%, #0F7A18 100%)",
-      "$description": "The OS gradient. Orange → yellow → brand green. Wordmark, streak rings, reward states."
+    "$type": "color",
+    "zen": {
+      "900": { "$value": "#0B5C12", "$description": "pressed. AAA on paper" },
+      "700": { "$value": "#0F7A18", "$description": "BRAND GREEN. primary. AA on paper" },
+      "500": { "$value": "#2AA136", "$description": "fills + charts only. never text" },
+      "300": { "$value": "#5BDF62", "$description": "on-dark accent. AAA on #111111" },
+      "200": { "$value": "#D9F7DB" },
+      "100": { "$value": "#BFF3C2" },
+      "050": { "$value": "#E6F6E7" },
+      "050-line": { "$value": "#C8E7CA" },
+      "ink": { "$value": "#1D3A20" },
+      "on": { "$value": "#F2FFF2" }
+    },
+    "amber": {
+      "800": { "$value": "#7A5A00", "$description": "reward text on paper. AA" },
+      "500": { "$value": "#FFC800", "$description": "reward fills. AAA on #111111" },
+      "on": { "$value": "#FFF8E1" }
+    },
+    "ember": {
+      "700": { "$value": "#B34700", "$description": "deduction text on paper. AA" },
+      "500": { "$value": "#FF6600", "$description": "fills only. never text on paper" },
+      "400": { "$value": "#FF9A4D" },
+      "300": { "$value": "#FF8A3D", "$description": "deduction delta on dark" },
+      "on": { "$value": "#FFF3EA" }
+    },
+    "ink": {
+      "base": { "$value": "#111111", "$description": "DARK MODE BASE" },
+      "surface": { "$value": "#1A1A1A" },
+      "raised": { "$value": "#222222" },
+      "gain": { "$value": "#16210F", "$description": "the one tinted dark surface" },
+      "line": { "$value": "#2B2B2B" },
+      "hairline": { "$value": "#242424" },
+      "soft": { "$value": "#4C4C48" }
+    },
+    "paper": {
+      "base": { "$value": "#F2F1ED", "$description": "LIGHT MODE BASE" },
+      "raised": { "$value": "#FAF9F5" },
+      "sunk": { "$value": "#EAE8E2" },
+      "white": { "$value": "#FFFFFF" },
+      "ink": { "$value": "#F5F5F1" },
+      "hairline": { "$value": "#DBD9D2" },
+      "hairline-soft": { "$value": "#E4E2DB" }
+    },
+    "stone": {
+      "600": { "$value": "#5E6058" },
+      "500": { "$value": "#70726A" },
+      "400": { "$value": "#8C8E86" },
+      "300": { "$value": "#9E9E98" },
+      "250": { "$value": "#7E7E78" },
+      "200": { "$value": "#DCDCD6" }
     }
   },
+  "semantic": {
+    "$type": "color",
+    "light": {
+      "surface": {
+        "base": { "$value": "{color.paper.base}" },
+        "card": { "$value": "{color.paper.raised}" },
+        "sunk": { "$value": "{color.paper.sunk}" },
+        "tint": { "$value": "{color.zen.050}" },
+        "inverse": { "$value": "{color.ink.surface}" }
+      },
+      "text": {
+        "heading": { "$value": "{color.ink.surface}" },
+        "body": { "$value": "{color.ink.soft}" },
+        "caption": { "$value": "{color.stone.600}" },
+        "muted": { "$value": "{color.stone.500}" },
+        "mono": { "$value": "{color.stone.400}" },
+        "brand": { "$value": "{color.zen.700}" },
+        "on-brand": { "$value": "{color.zen.on}" },
+        "inverse": { "$value": "{color.paper.ink}" }
+      },
+      "border": {
+        "hairline": { "$value": "{color.paper.hairline}" },
+        "focus": { "$value": "{color.zen.700}" }
+      },
+      "action": {
+        "primary": { "$value": "{color.ink.surface}" },
+        "primary-text": { "$value": "{color.paper.ink}" },
+        "primary-hover": { "$value": "{color.zen.700}" },
+        "primary-pressed": { "$value": "{color.zen.900}" },
+        "outline-border": { "$value": "#C9C7BD" }
+      },
+      "accent": {
+        "working": { "$value": "{color.zen.700}", "$description": "slot 1 of 2. identity, focus, primary action" },
+        "reward": { "$value": "{color.amber.800}", "$description": "slot 2 of 2. reward text" },
+        "reward-graphic": { "$value": "{color.amber.500}", "$description": "reward fills only" }
+      },
+      "score": {
+        "gain": { "$value": "{color.zen.700}" },
+        "deduct": { "$value": "{color.ember.700}" }
+      }
+    },
+    "dark": {
+      "surface": {
+        "base": { "$value": "{color.ink.base}" },
+        "card": { "$value": "{color.ink.surface}" },
+        "sunk": { "$value": "{color.ink.raised}" },
+        "tint": { "$value": "{color.ink.gain}" },
+        "inverse": { "$value": "{color.paper.base}" }
+      },
+      "text": {
+        "heading": { "$value": "{color.paper.ink}" },
+        "body": { "$value": "{color.stone.200}" },
+        "caption": { "$value": "{color.stone.300}" },
+        "muted": { "$value": "{color.stone.250}" },
+        "mono": { "$value": "{color.stone.250}" },
+        "brand": { "$value": "{color.zen.300}" },
+        "on-brand": { "$value": "{color.zen.on}" },
+        "inverse": { "$value": "{color.ink.surface}" }
+      },
+      "border": {
+        "hairline": { "$value": "{color.ink.line}" },
+        "focus": { "$value": "{color.zen.300}" }
+      },
+      "action": {
+        "primary": { "$value": "{color.zen.300}" },
+        "primary-text": { "$value": "{color.ink.base}" },
+        "primary-hover": { "$value": "{color.paper.ink}" },
+        "primary-pressed": { "$value": "{color.zen.500}" },
+        "outline-border": { "$value": "{color.ink.line}" }
+      },
+      "accent": {
+        "working": { "$value": "{color.zen.300}" },
+        "reward": { "$value": "{color.amber.500}" },
+        "reward-graphic": { "$value": "{color.amber.500}" }
+      },
+      "score": {
+        "gain": { "$value": "{color.zen.300}" },
+        "deduct": { "$value": "{color.ember.300}" }
+      }
+    }
+  },
+  "gradient": {
+    "$type": "other",
+    "os": { "$value": "linear-gradient(100deg,#FF6600 0%,#FFC800 48%,#0F7A18 100%)", "$description": "mark + reward device. never a page background" },
+    "score": { "$value": "linear-gradient(90deg,#FF6600,#FFC800 46%,#5BDF62)" },
+    "paper-raised": { "$value": "linear-gradient(#FAF9F5,#EAE8E2)" },
+    "paper-deep": { "$value": "linear-gradient(#FAF9F5,#E7E5DE)" },
+    "ink-raised": { "$value": "linear-gradient(#1F1F1F,#111111)" },
+    "ink-flat": { "$value": "linear-gradient(#111111,#181818)" },
+    "widget-zen": { "$value": "linear-gradient(160deg,#5BDF62,#2AA136)", "$description": "the ONE accent widget tile — graphics only" },
+    "widget-zen-deep": { "$value": "linear-gradient(160deg,#2AA136,#0B5C12)", "$description": "text-bearing accent tile. zen.on passes AA on the bottom stop" },
+    "widget-quiet": { "$value": "linear-gradient(160deg,#FAF9F5,#E7E5DE)", "$description": "its neutral partner, light" },
+    "widget-quiet-ink": { "$value": "linear-gradient(160deg,#262626,#171717)", "$description": "its neutral partner, dark" }
+  },
   "font": {
-    "brand": { "$type": "fontFamily", "$value": "Clash Display", "$description": "Brand layer. Headlines, hero numbers of copy." },
-    "system": { "$type": "fontFamily", "$value": "Geist", "$description": "System layer. Every UI string." },
-    "number": { "$type": "fontFamily", "$value": "Departure Mono", "$description": "Number layer. Scores, timers, deltas, labels." }
+    "$type": "fontFamily",
+    "brand": { "$value": "Clash Display", "$description": "Medium 500 only. never a paragraph, never below 20" },
+    "system": { "$value": "Geist", "$description": "400 + 600 only" },
+    "number": { "$value": "Departure Mono", "$description": "tabular figures" }
+  },
+  "weight": {
+    "$type": "fontWeight",
+    "brand": { "$value": 500 },
+    "body": { "$value": 400 },
+    "emphasis": { "$value": 600 }
   },
   "type": {
-    "display": { "$type": "typography", "$value": { "fontFamily": "Clash Display", "fontWeight": "500", "fontSize": "57sp", "lineHeight": "64sp", "letterSpacing": "-0.02em" } },
-    "headline-lg": { "$type": "typography", "$value": { "fontFamily": "Clash Display", "fontWeight": "500", "fontSize": "32sp", "lineHeight": "40sp", "letterSpacing": "-0.015em" } },
-    "headline-sm": { "$type": "typography", "$value": { "fontFamily": "Clash Display", "fontWeight": "500", "fontSize": "24sp", "lineHeight": "32sp", "letterSpacing": "-0.01em" } },
-    "title": { "$type": "typography", "$value": { "fontFamily": "Geist", "fontWeight": "600", "fontSize": "20sp", "lineHeight": "28sp", "letterSpacing": "0em" } },
-    "body-lg": { "$type": "typography", "$value": { "fontFamily": "Geist", "fontWeight": "400", "fontSize": "16sp", "lineHeight": "24sp", "letterSpacing": "0.005em" } },
-    "body-md": { "$type": "typography", "$value": { "fontFamily": "Geist", "fontWeight": "400", "fontSize": "14sp", "lineHeight": "20sp", "letterSpacing": "0.01em" } },
-    "label": { "$type": "typography", "$value": { "fontFamily": "Geist", "fontWeight": "500", "fontSize": "12sp", "lineHeight": "16sp", "letterSpacing": "0.05em", "textCase": "uppercase" } },
-    "metric-xl": { "$type": "typography", "$value": { "fontFamily": "Departure Mono", "fontWeight": "400", "fontSize": "48sp", "lineHeight": "52sp", "letterSpacing": "-0.01em" } },
-    "metric": { "$type": "typography", "$value": { "fontFamily": "Departure Mono", "fontWeight": "400", "fontSize": "20sp", "lineHeight": "24sp", "letterSpacing": "0.02em" } },
-    "mono-label": { "$type": "typography", "$value": { "fontFamily": "Departure Mono", "fontWeight": "400", "fontSize": "11sp", "lineHeight": "16sp", "letterSpacing": "0.1em", "textCase": "uppercase" } }
+    "$type": "typography",
+    "display": { "$value": { "fontFamily": "{font.brand}", "fontWeight": "{weight.brand}", "fontSize": "57px", "lineHeight": "64px", "letterSpacing": "-0.02em" } },
+    "headline-lg": { "$value": { "fontFamily": "{font.brand}", "fontWeight": "{weight.brand}", "fontSize": "32px", "lineHeight": "40px", "letterSpacing": "-0.015em" } },
+    "headline-sm": { "$value": { "fontFamily": "{font.brand}", "fontWeight": "{weight.brand}", "fontSize": "24px", "lineHeight": "32px", "letterSpacing": "-0.01em" } },
+    "title": { "$value": { "fontFamily": "{font.system}", "fontWeight": "{weight.emphasis}", "fontSize": "20px", "lineHeight": "28px", "letterSpacing": "0em" } },
+    "body-lg": { "$value": { "fontFamily": "{font.system}", "fontWeight": "{weight.body}", "fontSize": "16px", "lineHeight": "24px", "letterSpacing": "0.005em" } },
+    "body-md": { "$value": { "fontFamily": "{font.system}", "fontWeight": "{weight.body}", "fontSize": "14px", "lineHeight": "20px", "letterSpacing": "0.01em" } },
+    "label": { "$value": { "fontFamily": "{font.system}", "fontWeight": "{weight.brand}", "fontSize": "12px", "lineHeight": "16px", "letterSpacing": "0.05em", "textCase": "uppercase" } },
+    "metric-xl": { "$value": { "fontFamily": "{font.number}", "fontWeight": "{weight.body}", "fontSize": "48px", "lineHeight": "52px", "letterSpacing": "-0.01em" } },
+    "metric": { "$value": { "fontFamily": "{font.number}", "fontWeight": "{weight.body}", "fontSize": "20px", "lineHeight": "24px", "letterSpacing": "0.02em" } },
+    "mono-label": { "$value": { "fontFamily": "{font.number}", "fontWeight": "{weight.body}", "fontSize": "11px", "lineHeight": "16px", "letterSpacing": "0.1em", "textCase": "uppercase" } }
   },
   "space": {
-    "1": { "$type": "dimension", "$value": "4dp" },
-    "2": { "$type": "dimension", "$value": "8dp" },
-    "3": { "$type": "dimension", "$value": "12dp" },
-    "4": { "$type": "dimension", "$value": "16dp" },
-    "5": { "$type": "dimension", "$value": "20dp", "$description": "Screen side margin." },
-    "6": { "$type": "dimension", "$value": "24dp" },
-    "8": { "$type": "dimension", "$value": "32dp" },
-    "12": { "$type": "dimension", "$value": "48dp", "$description": "Minimum touch target." }
+    "$type": "dimension",
+    "1": { "$value": "4px" }, "2": { "$value": "8px" }, "3": { "$value": "12px" },
+    "4": { "$value": "16px" }, "5": { "$value": "20px" }, "6": { "$value": "24px" },
+    "8": { "$value": "32px" }, "12": { "$value": "48px" },
+    "screen-margin": { "$value": "20px" },
+    "card-padding": { "$value": "16px" },
+    "card-padding-lg": { "$value": "20px" },
+    "row-gap": { "$value": "12px" },
+    "group-gap": { "$value": "24px" },
+    "target-min": { "$value": "48px" },
+    "target-gap-min": { "$value": "8px" }
   },
   "radius": {
-    "sm": { "$type": "dimension", "$value": "8dp", "$description": "Logo construction unit. Icons, chips." },
-    "md": { "$type": "dimension", "$value": "16dp" },
-    "lg": { "$type": "dimension", "$value": "20dp", "$description": "Cards." },
-    "full": { "$type": "dimension", "$value": "999dp" }
-  }
+    "$type": "dimension",
+    "sm": { "$value": "8px" }, "md": { "$value": "16px" }, "lg": { "$value": "20px" },
+    "xl": { "$value": "24px" }, "2xl": { "$value": "34px" }, "full": { "$value": "999px" },
+    "widget": { "$value": "22px" }, "app-tile": { "$value": "17px" }
+  },
+  "shadow": {
+    "$type": "other",
+    "paper-card": { "$value": "inset 0 1px 0 #FFFFFF, 0 1px 2px rgba(18,22,15,0.07), 0 22px 44px -28px rgba(18,22,15,0.4)" },
+    "paper-panel": { "$value": "inset 0 1px 0 #FFFFFF, 0 1px 2px rgba(18,22,15,0.07), 0 30px 60px -34px rgba(18,22,15,0.5)" },
+    "ink-card": { "$value": "0 22px 44px -28px rgba(0,0,0,0.6)" },
+    "green-card": { "$value": "0 22px 44px -28px rgba(15,122,24,0.8)" },
+    "device": { "$value": "0 30px 60px -30px rgba(0,0,0,0.7)" },
+    "sticker": { "$value": "0 0 0 5px #FFFFFF, 0 10px 20px -8px rgba(0,0,0,0.3)" }
+  },
+  "$themes": [
+    { "name": "Light", "selectedTokenSets": { "color": "source", "semantic/light": "enabled", "gradient": "enabled", "font": "enabled", "weight": "enabled", "type": "enabled", "space": "enabled", "radius": "enabled", "shadow": "enabled" } },
+    { "name": "Dark", "selectedTokenSets": { "color": "source", "semantic/dark": "enabled", "gradient": "enabled", "font": "enabled", "weight": "enabled", "type": "enabled", "space": "enabled", "radius": "enabled", "shadow": "enabled" } }
+  ]
 }
